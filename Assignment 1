@@ -1,0 +1,42 @@
+# Base class
+class Superhero:
+    def __init__(self, name, power, origin):
+        self.name = name
+        self.power = power
+        self.origin = origin
+        self._energy_level = 100  # Encapsulated attribute
+
+    def introduce(self):
+        print(f"I am {self.name} from {self.origin} with the power of {self.power}!")
+
+    def fight(self):
+        if self._energy_level >= 20:
+            self._energy_level -= 20
+            print(f"{self.name} is fighting using {self.power}! ⚔️ Energy left: {self._energy_level}")
+        else:
+            print(f"{self.name} is too tired to fight. 😴")
+
+    def rest(self):
+        self._energy_level = 100
+        print(f"{self.name} has rested and recharged energy to {self._energy_level}! 🌟")
+
+# Inherited class
+class FlyingSuperhero(Superhero):
+    def __init__(self, name, power, origin, flight_speed):
+        super().__init__(name, power, origin)
+        self.flight_speed = flight_speed
+
+    def fly(self):
+        print(f"{self.name} is flying at {self.flight_speed} km/h! ✈️")
+
+# Example usage
+hero1 = Superhero("Shadow Ninja", "Invisibility", "Hidden Valley")
+hero2 = FlyingSuperhero("Sky Wing", "Wind Control", "Cloud City", 300)
+
+hero1.introduce()
+hero1.fight()
+hero1.rest()
+
+hero2.introduce()
+hero2.fly()
+hero2.fight()
