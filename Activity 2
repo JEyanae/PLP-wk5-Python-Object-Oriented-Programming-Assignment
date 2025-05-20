@@ -1,0 +1,30 @@
+# Base class
+class Vehicle:
+    def move(self):
+        print("The vehicle is moving.")
+
+# Subclasses with different move behavior
+class Car(Vehicle):
+    def move(self):
+        print("Driving 🚗")
+
+class Plane(Vehicle):
+    def move(self):
+        print("Flying ✈️")
+
+class Boat(Vehicle):
+    def move(self):
+        print("Sailing ⛵")
+
+# Function that uses polymorphism
+def test_movement(vehicle):
+    vehicle.move()
+
+# Example usage
+car = Car()
+plane = Plane()
+boat = Boat()
+
+test_movement(car)
+test_movement(plane)
+test_movement(boat)
